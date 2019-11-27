@@ -13,17 +13,26 @@ function burgerMenu(selector) {
     overlay.on('click', () => toggleMenu());
 
     
-    
-
     function toggleMenu() {
         menu.toggleClass('burger-menu__active');
-
+      
         if (menu.hasClass('burger-menu__active')) {
-            $('body').css('overflow', 'hidden');
-        } else {
-            $('body').css('overflow', 'visible')
+                const block = $('body').scrollTop();
+                $(window).on('scroll', () => $('body').scrollTop(block));
+            } else {
+                $(window).off('scroll');
+            }
         }
-    }
+
+    // function toggleMenu() {
+    //     menu.toggleClass('burger-menu__active');
+
+    //     if (menu.hasClass('burger-menu__active')) {
+    //         $('body').css('overflow', 'hidden');
+    //     } else {
+    //         $('body').css('overflow', 'visible')
+    //     }
+    // }
 }
 
 burgerMenu('.burger-menu');
