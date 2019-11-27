@@ -13,3 +13,57 @@ section {
     text-transform: uppercase;
     color: #000;
 }
+
+.burger-menu__button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 30;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #2a2a2a;
+}
+
+.burger-menu__button:hover .burger-menu__lines {
+    filter: brightness(0.7);
+}
+
+.burger-menu__lines,
+.burger-menu__lines::after,
+.burger-menu__lines::before {
+    position: absolute;
+    width: 40px;
+    height: 6px;
+    background-color: #fff;
+}
+
+.burger-menu__lines {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.burger-menu__lines::before {
+    content: '';
+    top: -12px;
+}
+
+.burger-menu__lines::after {
+    content: '';
+    top: 12px;
+}
+
+.burger-menu__active .burger-menu__lines {
+    background-color: transparent;
+}
+
+.burger-menu__active .burger-menu__lines::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.burger-menu__active .burger-menu__lines::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
