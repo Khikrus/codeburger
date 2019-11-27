@@ -1,8 +1,8 @@
 function burgerMenu(selector) {
     let menu = $(selector);
-    let button = menu.find('burger-menu__button');
+    let button = menu.find('.burger-menu__button');
     let links = menu.find('.burget-menu__link');
-    let overlay = menu.find('.burger-menu__link');
+    let overlay = menu.find('.burger-menu__overlay');
 
     button.on('click', (e) => {
         e.preventDefault();
@@ -12,10 +12,13 @@ function burgerMenu(selector) {
     links.on('click', () => toggleMenu());
     overlay.on('click', () => toggleMenu());
 
+    
+    
+
     function toggleMenu() {
         menu.toggleClass('burger-menu__active');
 
-        if (menu.toggleClass('burger-menu__active')) {
+        if (menu.hasClass('burger-menu__active')) {
             $('body').css('overflow', 'hidden');
         } else {
             $('body').css('overflow', 'visible')
